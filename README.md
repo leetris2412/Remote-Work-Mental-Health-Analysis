@@ -1,147 +1,137 @@
-# 📊 Remote Work & Mental Health Dashboard
-
-## 📌 Project Overview
-This project analyzes the impact of remote work on employees' mental health using data analysis and visualization techniques.
-
-The goal is to identify key factors affecting stress levels and provide actionable insights for improving employee well-being.
+# 📊 Remote Work & Mental Health Analysis (End-to-End Data Project)
 
 ---
 
-## 🎯 Objectives
-- Analyze how remote work affects stress levels
-- Identify relationships between working hours and mental health
-- Compare stress across different demographics (age, gender, job role)
-- Provide recommendations based on data insights
+## 📌 Project Overview
+This project analyzes the impact of remote work on employee mental health and productivity using a dataset of 5,000 global employees.
+
+The project follows a complete end-to-end data workflow, including:
+- Designing a relational database in MySQL
+- Performing data cleaning and transformation
+- Building an interactive dashboard in Power BI
+
+The objective is to generate actionable insights to support HR decision-making.
 
 ---
 
 ## 🛠️ Tools & Technologies
-- **MySQL** – Data cleaning, transformation, and analysis  
-- **Power BI** – Data visualization and dashboard creation  
+- **MySQL**  
+  - Database Design (Schema, Normalization - 3NF)  
+  - Data Cleaning & Transformation  
+  - Feature Engineering  
+  - SQL Views  
+
+- **Power BI**  
+  - Data Modeling  
+  - DAX Measures  
+  - Interactive Dashboard  
+
+- **Dataset**  
+  - 5,000 employee records  
+  - Includes work type, mental health indicators, productivity metrics  
 
 ---
 
-## 📂 Dataset
-- **Name:** Impact of Remote Work on Mental Health  
-- Includes:
-  - Work Type (Remote / Onsite / Hybrid)
-  - Stress Level
-  - Working Hours
-  - Age, Gender, Job Role
+## 📂 Project Structure
+/Data → Raw dataset (.csv)
+/SQL_Scripts → SQL queries (cleaning, transformation, analysis)
+/Report → Dashboard screenshots & Power BI file (.pbix)
 
 ---
 
-## 🔄 Workflow
+## 🚀 Project Workflow
 
-### 1. Data Preparation (MySQL)
-- Imported dataset into MySQL
-- Cleaned missing and inconsistent data
-- Standardized categorical variables
-- Created new features (e.g., Work Type)
-- Built SQL queries for analysis
-- Created views for Power BI
+### 1️⃣ Data Processing with MySQL
 
----
+Instead of using a flat table, the dataset was normalized into **Third Normal Form (3NF)** to improve performance and data integrity.
 
-### 2. Data Analysis (SQL)
-Key analyses performed:
-- Stress level distribution by work type
-- Relationship between working hours and stress
-- Stress variation across age groups and gender
+#### 🔹 Database Design
+- Split the original dataset into 4 tables:
+  - `Employees`
+  - `Jobs`
+  - `Work_Habits`
+  - `Mental_Health`
+- Defined **Primary Keys** and **Foreign Keys** to establish relationships
 
----
+#### 🔹 Data Cleaning
+- Handled missing values (NULL)
+- Standardized inconsistent formats
+- Converted data types (e.g., Age, Meetings from TEXT → INT)
 
-### 3. Dashboard Development (Power BI)
+#### 🔹 Feature Engineering
+Created new analytical features using `CASE WHEN`:
+- `Age_Group`
+- `Experience_Level`
+- `Work_Intensity`
 
-## 🧩 Dashboard Layout
-
-### 🔹 Header
-- Title: **Remote Work & Mental Health Dashboard**
-- Subtitle: *Analyzing the impact of remote work on employee stress*
-
----
-
-### 🔹 KPI Cards
-- Total Employees  
-- Average Stress Score  
-- % High Stress  
-- Average Working Hours  
+#### 🔹 Data Modeling
+- Built a consolidated **SQL View (`Final_View`)**  
+- This view serves as a clean and optimized data source for Power BI
 
 ---
 
-### 🔹 Visualizations
+### 2️⃣ Data Visualization with Power BI
 
-#### 📊 1. Stress Level by Work Type
-- Stacked column chart
-- Compares stress distribution across Remote, Onsite, and Hybrid
+Developed an interactive dashboard to answer key business questions:
 
-#### 📈 2. Working Hours vs Stress
-- Line chart
-- Shows relationship between working hours and stress level
+#### 🔹 Mental Health Analysis
+- Compare stress levels across work types:
+  - Remote
+  - Onsite
+  - Hybrid
 
-#### 🥧 3. Stress Distribution
-- Donut chart
-- Displays percentage of Low, Medium, High stress
+#### 🔹 Work-Life Balance
+- Analyze the relationship between:
+  - Number of virtual meetings
+  - Work-life balance score
 
-#### 📊 4. Stress by Age / Gender
-- Clustered bar chart
-- Highlights which groups experience higher stress
-
----
-
-### 🔹 Filters (Slicers)
-- Work Type  
-- Gender  
-- Age Group  
-- Job Role  
-- Stress Level  
+#### 🔹 Productivity Insights
+- Evaluate productivity trends across different job roles and industries
 
 ---
 
-### 🔹 Key Insights Section
-- Remote workers show higher stress levels than onsite workers  
-- Employees working over 50 hours/week tend to have higher stress  
-- Younger employees experience more stress compared to older groups  
+## 📊 Key Insights
+- **Meeting Intensity:**  
+  Employees with more than 10 virtual meetings per week have a **20% lower work-life balance score**
+
+- **Stress Levels:**  
+  - Hybrid work provides the best balance  
+  - Fully remote employees show the highest burnout rate  
+
+- **Company Support:**  
+  Employees with access to mental health resources report significantly higher job satisfaction  
 
 ---
 
-## 🎨 Design Principles
-- Clean and minimal layout
-- Consistent color scheme:
-  - Blue: Primary
-  - Red: High Stress
-  - Orange: Medium Stress
-  - Green: Low Stress
-- Clear hierarchy (KPIs → Charts → Insights)
+## 💡 Recommendations
+- Limit virtual meetings to **under 8 sessions per week** to prevent overload  
+- Provide stronger mental health support for fully remote employees  
+- Encourage **hybrid work models** to balance flexibility and social interaction  
+
+---
+
+## 📊 Dashboard Features
+- KPI Cards (Total Employees, Avg Stress, Work-Life Balance)
+- Interactive Filters (Work Type, Age, Job Role)
+- Visualizations:
+  - Stress distribution by work type
+  - Meetings vs Work-Life Balance
+  - Productivity by role
 
 ---
 
 ## 📸 Dashboard Preview
-*(Insert screenshot here)*
+*(Add your Power BI dashboard screenshot here)*
 
 ---
 
-## 💡 Key Insights
-- Remote work is associated with increased stress levels  
-- Longer working hours significantly impact mental health  
-- Demographic differences play an important role in stress distribution  
-
----
-
-## ✅ Recommendations
-- Encourage hybrid work models  
-- Limit excessive working hours  
-- Provide mental health support programs  
-
----
-
-## 🚀 How to Run the Project
+## 🚀 How to Reproduce
 1. Import dataset into MySQL  
-2. Run SQL scripts for cleaning and analysis  
+2. Run SQL scripts for schema creation and data transformation  
 3. Connect Power BI to MySQL  
-4. Build dashboard using provided layout  
+4. Build dashboard based on the data model  
 
 ---
 
 ## 📬 Contact
-If you have any questions or feedback, feel free to reach out!
+Feel free to connect or reach out for discussion!
